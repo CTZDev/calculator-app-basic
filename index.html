@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="dist/css/variables.css" />
     <link rel="stylesheet" href="dist/css/globals.css" />
     <link rel="stylesheet" href="dist/css/style.css" />
+    <script defer src="./dist/js/script.js" type="module"></script>
     <title>Frontend Mentor | Calculator app</title>
   </head>
   <body class="flex flex-fd-c flex-ai-c flex-jc-c">
@@ -20,13 +21,13 @@
         <div class="navigation-theme flex flex-ai-e">
           <h2>Theme</h2>
           <div class="navigation-theme-options">
-            <div class="navigation-theme-values flex flex-ai-c flex-jc-sa">
+            <div class="navigation-theme-values flex flex-ai-c flex-jc-sb">
               <span>1</span>
               <span>2</span>
               <span>3</span>
             </div>
-            <div class="navigation-theme-switch">
-              <span class="navigation-theme-switch-circle"></span>
+            <div id="toggle" class="navigation-theme-switch">
+              <span id="toggleButton" class="navigation-theme-switch-circle"></span>
             </div>
           </div>
         </div>
