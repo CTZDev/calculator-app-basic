@@ -1,0 +1,62 @@
+:root {
+  /* Theme One */
+  /* Backgrounds */
+  --dark-des-main: hsl(222, 26%, 31%);
+  --dark-des-toggle: hsl(223, 31%, 20%);
+  --dark-des-screen: hsl(224, 36%, 15%);
+  /* Keys */
+  --dark-des-keybg: hsl(225, 21%, 49%);
+  --dark-des-keyshw: hsl(224, 28%, 35%);
+  --red-bg-toggle: hsl(6, 63%, 50%);
+  --dark-red-keyshw: hsl(6, 70%, 34%);
+  --light-grayisho-key: hsl(30, 25%, 89%);
+  --grayisho-key: hsl(28, 16%, 65%);
+  /* Text */
+  --dark-grayishb-text: hsl(221, 14%, 31%);
+
+  /* Theme Two */
+  /* Backgrounds */
+  --light-gray-main: hsl(0, 0%, 90%);
+  --grayish-toggle: hsl(0, 5%, 81%);
+  --gray-screen: hsl(0, 0%, 93%);
+  /* Keys */
+  --dark-cyan-keybg: hsl(185, 42%, 37%);
+  --dark-cyan-keyshw: hsl(185, 58%, 25%);
+  --orange-bg-toggle: hsl(25, 98%, 40%);
+  --dark-orange-keyshw: hsl(25, 99%, 27%);
+  --light-grayishy-key: hsl(45, 7%, 89%);
+  --dark-grayish-key: hsl(35, 11%, 61%);
+  /* Text */
+  --dark-grayishy-text: hsl(60, 10%, 19%);
+
+  /* Theme Two */
+  /* Backgrounds */
+  --dark-violet-main: hsl(268, 75%, 9%);
+  --dark-violet-toggle-screen: hsl(268, 71%, 12%);
+  /* Keys */
+  --dark-violet-keybg: hsl(281, 89%, 26%);
+  --vivid-magenta-keyshw: hsl(285, 91%, 52%);
+  --cyan-bg-toggle: hsl(176, 100%, 44%);
+  --soft-cyan-keyshw: hsl(177, 92%, 70%);
+  --vdark-violet-keybg: hsl(268, 47%, 21%);
+  --dark-magenta-keyshw: hsl(290, 70%, 36%);
+  /* Text */
+  --light-yellow-text: hsl(52, 100%, 62%);
+  --vdark-blue-text: hsl(198, 20%, 13%);
+
+  --clr-white: hsl(0, 0, 100%);
+  --font-default: 32px;
+  --font-family: "Spartan", sans-serif;
+
+  /* Default */
+  --background-color-main: var(--dark-des-main);
+  --background-color-toggle: var(--dark-des-toggle);
+  --background-color-screen: var(---dark-des-screen);
+  --key-bacground-color-primary: var(--dark-des-keybg);
+  --key-shadow-color-primary: var(--dark-des-keyshw);
+  --key-background-color-secondary: var(--red-bg-toggle);
+  --key-shadow-color-secondary: var(--dark-red-keyshw);
+  --key-background-color-tertiary: var(--light-grayisho-key);
+  --key-shadow-color-tertiary: var(--grayisho-key);
+  --text-color: var(--dark-grayishb-text);
+}
