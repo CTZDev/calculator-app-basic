@@ -1,9 +1,129 @@
 /* main-header */
 .main-header {
-  border: 1px solid red;
+  color: var(--clr-white);
+  width: 100%;
+  max-width: 375px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/*Calculator*/
-.calculator {
-  border: 1px solid black;
+.brand {
+  text-decoration: none;
+  display: block;
+  color: var(--clr-white);
+  font-size: calc(var(--font-default) + 0.4rem);
+}
+
+.navigation-theme h2 {
+  margin-right: 1.5rem;
+  padding-bottom: 6px;
+  text-transform: uppercase;
+  font-size: 0.85em;
+}
+
+.navigation-theme-options {
+  width: 4.5rem;
+}
+
+.navigation-theme-values {
+  margin-bottom: 0.4rem;
+  font-size: 0.8em;
+}
+
+.navigation-theme-switch {
+  width: 4.5rem;
+  height: 1.75rem;
+  background-color: var(--background-color-toggle);
+  border-radius: 100vw;
+  display: flex;
+  align-items: center;
+  padding-left: 4px;
+}
+
+.navigation-theme-switch-circle {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: var(--key-background-color-secondary);
+  border-radius: 50%;
+  transition: transform 200ms ease;
+  will-change: transform;
+}
+
+/* ACTIVAR CON JS */
+.navigation-theme-switch-circle.theme2 {
+  transform: translateX(19px);
+}
+
+.navigation-theme-switch-circle.theme3 {
+  transform: translateX(46px);
+}
+
+/* Calculator */
+
+main {
+  width: 100%;
+  max-width: 375px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.display {
+  background-color: var(--background-color-screen);
+  color: var(--clr-white);
+  border-radius: 0.8rem;
+  text-align: right;
+  font-size: var(--font-default);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.calculator-operations {
+  background-color: var(--background-color-toggle);
+  padding: 1.5rem;
+}
+
+.calculator-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.calculator-option {
+  font-size: var(--font-default);
+  text-align: center;
+  padding: 1.2rem 0;
+  color: var(--text-color);
+  background-color: var(--clr-white);
+  border-radius: 8px;
+  box-shadow: 0 -12px 0px -7px rgb(0 0 0 / 50%) inset;
+}
+
+.calculator-option-del {
+  font-size: 1.2em;
+  text-transform: uppercase;
+  color: var(--clr-white);
+  background-color: var(--key-bacground-color-primary);
+}
+
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 0.75rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .main-header,
+  main {
+    max-width: 542px;
+  }
+
+  .calculator-option {
+    padding: 1rem 0;
+  }
+
+  .brand {
+    font-size: calc(var(--font-default) + 0.8rem);
+  }
 }

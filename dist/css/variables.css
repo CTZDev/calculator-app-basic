@@ -44,14 +44,10 @@
   --light-yellow-text: hsl(52, 100%, 62%);
   --vdark-blue-text: hsl(198, 20%, 13%);
 
-  --clr-white: hsl(0, 0, 100%);
-  --font-default: 32px;
-  --font-family: "Spartan", sans-serif;
-
   /* Default */
   --background-color-main: var(--dark-des-main);
   --background-color-toggle: var(--dark-des-toggle);
-  --background-color-screen: var(---dark-des-screen);
+  --background-color-screen: var(--dark-des-screen);
   --key-bacground-color-primary: var(--dark-des-keybg);
   --key-shadow-color-primary: var(--dark-des-keyshw);
   --key-background-color-secondary: var(--red-bg-toggle);
@@ -59,4 +55,7 @@
   --key-background-color-tertiary: var(--light-grayisho-key);
   --key-shadow-color-tertiary: var(--grayisho-key);
   --text-color: var(--dark-grayishb-text);
+  --clr-white: hsl(0, 0%, 100%);
+  --font-default: 32px;
+  --font-family: "Spartan", sans-serif;
 }
