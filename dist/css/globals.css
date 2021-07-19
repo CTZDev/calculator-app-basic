@@ -48,14 +48,11 @@ body {
   padding: 1.2rem 0;
   font-size: 1.2em;
   text-transform: uppercase;
-  color: var(--clr-white);
   cursor: pointer;
   transform: scale(1);
-  border: 1px solid transparent;
   transition: transform 200ms ease;
   font-weight: bold;
   font-family: var(--font-family);
-  box-shadow: 0 -12px 0px -7px rgb(0 0 0 / 50%) inset;
 }
 
 .btn:is(:hover, :focus) {
@@ -63,11 +60,15 @@ body {
 }
 
 .btn-reset {
-  background-color: var(--key-bacground-color-primary);
+  background-color: var(--key-background-color-primary);
+  box-shadow: 0 -12px 0px -7px var(--key-shadow-color-primary) inset;
+  color: var(--clr-white-reset);
 }
 
 .btn-equal {
   background-color: var(--key-background-color-secondary);
+  box-shadow: 0 -12px 0px -7px var(--key-shadow-color-secondary) inset;
+  color: var(--clr-white-equal);
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */

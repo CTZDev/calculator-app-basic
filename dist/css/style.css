@@ -28,7 +28,6 @@
 .navigation-theme-values {
   margin-bottom: 0.4rem;
   font-size: 0.8em;
-  padding: 0 0.4rem;
 }
 
 .navigation-theme-switch {
@@ -98,9 +97,9 @@ main {
   text-align: center;
   padding: 1.2rem 0;
   color: var(--text-color);
-  background-color: var(--clr-white);
+  background-color: var(--key-background-color-tertiary);
+  box-shadow: 0 -12px 0px -7px var(--key-shadow-color-tertiary) inset;
   border-radius: 8px;
-  box-shadow: 0 -12px 0px -7px rgb(0 0 0 / 50%) inset;
   cursor: pointer;
   line-height: 2rem;
 }
@@ -108,8 +107,9 @@ main {
 .calculator-option-del {
   font-size: 1.2em;
   text-transform: uppercase;
-  color: var(--clr-white);
-  background-color: var(--key-bacground-color-primary);
+  color: var(--clr-white-reset);
+  background-color: var(--key-background-color-primary);
+  box-shadow: 0 -12px 0px -7px var(--key-shadow-color-primary) inset;
 }
 
 .calculator-buttons {

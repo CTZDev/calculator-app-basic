@@ -29,7 +29,7 @@
   /* Text */
   --dark-grayishy-text: hsl(60, 10%, 19%);
 
-  /* Theme Two */
+  /* Theme Three */
   /* Backgrounds */
   --dark-violet-main: hsl(268, 75%, 9%);
   --dark-violet-toggle-screen: hsl(268, 71%, 12%);
@@ -39,7 +39,7 @@
   --cyan-bg-toggle: hsl(176, 100%, 44%);
   --soft-cyan-keyshw: hsl(177, 92%, 70%);
   --vdark-violet-keybg: hsl(268, 47%, 21%);
-  --dark-magenta-keyshw: hsl(290, 70%, 36%);
+  --dark-magenta-keyshw: hsl(290, 70%, 36%); /* X */
   /* Text */
   --light-yellow-text: hsl(52, 100%, 62%);
   --vdark-blue-text: hsl(198, 20%, 13%);
@@ -48,7 +48,7 @@
   --background-color-main: var(--dark-des-main);
   --background-color-toggle: var(--dark-des-toggle);
   --background-color-screen: var(--dark-des-screen);
-  --key-bacground-color-primary: var(--dark-des-keybg);
+  --key-background-color-primary: var(--dark-des-keybg);
   --key-shadow-color-primary: var(--dark-des-keyshw);
   --key-background-color-secondary: var(--red-bg-toggle);
   --key-shadow-color-secondary: var(--dark-red-keyshw);
@@ -56,6 +56,37 @@
   --key-shadow-color-tertiary: var(--grayisho-key);
   --text-color: var(--dark-grayishb-text);
   --clr-white: hsl(0, 0%, 100%);
+  --clr-white-reset: hsl(0, 0%, 100%);
+  --clr-white-equal: hsl(0, 0%, 100%);
   --font-default: 32px;
   --font-family: "Spartan", sans-serif;
+}
+
+.active-theme2 {
+  --background-color-main: var(--light-gray-main);
+  --background-color-toggle: var(--grayish-toggle);
+  --background-color-screen: var(--gray-screen);
+  --key-background-color-primary: var(--dark-cyan-keybg);
+  --key-shadow-color-primary: var(--dark-cyan-keyshw);
+  --key-background-color-secondary: var(--orange-bg-toggle);
+  --key-shadow-color-secondary: var(--dark-orange-keyshw);
+  --key-background-color-tertiary: var(--light-grayishy-key);
+  --key-shadow-color-tertiary: var(--dark-grayish-key);
+  --text-color: var(--dark-grayishy-text);
+  --clr-white: var(--dark-grayishy-text);
+}
+
+.active-theme3 {
+  --background-color-main: var(--dark-violet-main);
+  --background-color-toggle: var(--dark-violet-toggle-screen);
+  --background-color-screen: var(--dark-violet-toggle-screen);
+  --key-background-color-primary: var(--dark-violet-keybg);
+  --key-shadow-color-primary: var(--vivid-magenta-keyshw);
+  --key-background-color-secondary: var(--cyan-bg-toggle);
+  --key-shadow-color-secondary: var(--soft-cyan-keyshw);
+  --key-background-color-tertiary: var(--vdark-violet-keybg);
+  --key-shadow-color-tertiary: var(--dark-magenta-keyshw);
+  --text-color: var(--light-yellow-text);
+  --clr-white: var(--light-yellow-text);
+  --clr-white-equal: hsl(0, 0%, 0%);
 }

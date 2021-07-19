@@ -14,12 +14,18 @@ export default function toggle() {
       if (x >= 0 && x < toggleSplit) {
         $toggleButton.classList.remove("theme2");
         $toggleButton.classList.remove("theme3");
+        d.body.classList.remove("active-theme2");
+        d.body.classList.remove("active-theme3");
       } else if (x >= toggleSplit && x < toggleSplit * 2) {
         $toggleButton.classList.add("theme2");
         $toggleButton.classList.remove("theme3");
+        d.body.classList.add("active-theme2");
+        d.body.classList.remove("active-theme3");
       } else {
         $toggleButton.classList.remove("theme2");
         $toggleButton.classList.add("theme3");
+        d.body.classList.remove("active-theme2");
+        d.body.classList.add("active-theme3");
       }
     }
   });
