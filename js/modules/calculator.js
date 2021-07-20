@@ -22,7 +22,7 @@ export default function calculatorApp() {
       unlockedButtons();
 
       //Active Button Equal
-      if (activeResult) {
+      if (activeResult && !$txtDisplay.value.includes(".")) {
         $txtDisplay.value = this.value;
         activeResult = false;
       }
@@ -30,7 +30,12 @@ export default function calculatorApp() {
   });
 
   d.addEventListener("click", (e) => {
-    if (e.target === $btnSum || e.target === $btnMinus || e.target === $btnProduct || e.target === $btnDivide) {
+    if (e.target === $btnSum || e.target === $btnProduct || e.target === $btnDivide) {
+      if ($txtDisplay.value === "") return alert("Primero debes digitar un numero");
+      arithmeticOptions(e);
+    }
+
+    if (e.target === $btnMinus) {
       arithmeticOptions(e);
     }
 
@@ -43,8 +48,10 @@ export default function calculatorApp() {
     }
 
     if (e.target === $btnDot) {
-      $txtDisplay.value += e.target.value;
-      $btnDot.disabled = true;
+      if (!$txtDisplay.value.includes(".")) {
+        $txtDisplay.value += e.target.value;
+        $btnDot.disabled = true;
+      }
     }
 
     if (e.target === $btnResult) {
@@ -64,7 +71,6 @@ export default function calculatorApp() {
 
   //Function Arithmetic , click signs
   const arithmeticOptions = (e) => {
-    if ($txtDisplay.value === "") return alert("Primero debes digitar un numero");
     if ($txtDisplay.value.slice(-1) === ".") return alert("Debes digitar correctamente tu numero decimal");
     $txtDisplay.value += e.target.value;
     $btnDot.disabled = false;

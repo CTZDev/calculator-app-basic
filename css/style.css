@@ -107,6 +107,8 @@ main {
   font-family: var(--font-family);
   border: none;
   outline: none;
+  display: block;
+  width: 100%;
 }
 
 .calculator-option-del {
