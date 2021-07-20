@@ -35,29 +35,29 @@
     </header>
     <main class="wrapper">
       <section class="calculator">
-        <div class="display">399,981</div>
+        <input type="text" id="txtDisplay" class="display" disabled placeholder="0" />
         <div class="calculator-operations">
           <div class="calculator-options">
-            <span class="calculator-option calculator-number">7</span>
-            <span class="calculator-option calculator-number">8</span>
-            <span class="calculator-option calculator-number">9</span>
-            <span id="btnDelete" class="calculator-option calculator-option-del">Del</span>
-            <span class="calculator-option calculator-number">4</span>
-            <span class="calculator-option calculator-number">5</span>
-            <span class="calculator-option calculator-number">6</span>
-            <span id="btnPlus" class="calculator-option">+</span>
-            <span class="calculator-option calculator-number">1</span>
-            <span class="calculator-option calculator-number">2</span>
-            <span class="calculator-option calculator-number">3</span>
-            <span id="btnMinus" class="calculator-option">-</span>
-            <span id="btnDot" class="calculator-option">.</span>
-            <span class="calculator-option calculator-number">0</span>
-            <span id="btnDivide" class="calculator-option">/</span>
-            <span id="btnProduct" class="calculator-option">x</span>
+            <input type="button" class="calculator-option" data-calc-number value="7" />
+            <input type="button" class="calculator-option" data-calc-number value="8" />
+            <input type="button" class="calculator-option" data-calc-number value="9" />
+            <input type="button" id="btnDelete" class="calculator-option calculator-option-del" value="Del" />
+            <input type="button" class="calculator-option" data-calc-number value="4" />
+            <input type="button" class="calculator-option" data-calc-number value="5" />
+            <input type="button" class="calculator-option" data-calc-number value="6" />
+            <input type="button" id="btnSum" class="calculator-option" value="+" />
+            <input type="button" class="calculator-option" data-calc-number value="1" />
+            <input type="button" class="calculator-option" data-calc-number value="2" />
+            <input type="button" class="calculator-option" data-calc-number value="3" />
+            <input type="button" id="btnMinus" class="calculator-option" value="-" />
+            <input type="button" id="btnDot" class="calculator-option" value="." />
+            <input type="button" class="calculator-option" data-calc-number value="0" />
+            <input type="button" id="btnDivide" class="calculator-option" value="/" />
+            <input type="button" id="btnProduct" class="calculator-option" value="x" />
           </div>
           <div class="calculator-buttons">
             <button id="btnReset" type="button" class="btn btn-reset">Reset</button>
-            <button id="btnResut" type="button" class="btn btn-equal">=</button>
+            <button id="btnResult" type="button" class="btn btn-equal">=</button>
           </div>
         </div>
       </section>

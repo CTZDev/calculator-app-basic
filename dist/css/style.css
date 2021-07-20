@@ -43,8 +43,8 @@
 
 .navigation-theme-switch-circle {
   display: block;
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.25rem;
+  height: 1.25rem;
   background-color: var(--key-background-color-secondary);
   border-radius: 50%;
   transition: transform 200ms ease;
@@ -55,11 +55,11 @@
 
 /* ACTIVAR CON JS */
 .navigation-theme-switch-circle.theme2 {
-  transform: translateX(24px);
+  transform: translateX(25px);
 }
 
 .navigation-theme-switch-circle.theme3 {
-  transform: translateX(48px);
+  transform: translateX(46px);
 }
 
 /* Calculator */
@@ -76,8 +76,10 @@ main {
   border-radius: 0.8rem;
   text-align: right;
   font-size: var(--font-default);
+  font-family: var(--font-family);
   padding: 1.75rem;
   margin-bottom: 1.5rem;
+  width: 100%;
 }
 
 .calculator-operations {
@@ -102,6 +104,9 @@ main {
   border-radius: 8px;
   cursor: pointer;
   line-height: 2rem;
+  font-family: var(--font-family);
+  border: none;
+  outline: none;
 }
 
 .calculator-option-del {
