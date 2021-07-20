@@ -21,7 +21,7 @@ export default function calculatorApp() {
       $txtDisplay.value += this.value;
       unlockedButtons();
 
-      //Active Button Equal
+      //Active Button Equal - Validity dot
       if (activeResult && !$txtDisplay.value.includes(".")) {
         $txtDisplay.value = this.value;
         activeResult = false;
@@ -48,6 +48,7 @@ export default function calculatorApp() {
     }
 
     if (e.target === $btnDot) {
+      //Validity Dot
       if (!$txtDisplay.value.includes(".")) {
         $txtDisplay.value += e.target.value;
         $btnDot.disabled = true;
