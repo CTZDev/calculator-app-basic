@@ -20,11 +20,10 @@ export default function calculatorApp() {
     number.addEventListener("click", function (e) {
       $txtDisplay.value += this.textContent;
       unlockedButtons();
-
-      //Active Button Equal - Validity dot
-      if (activeResult && !$txtDisplay.value.includes(".")) {
+      if (activeResult) {
         $txtDisplay.value = this.textContent;
         activeResult = false;
+        $btnDot.disabled = false;
       }
     });
   });
@@ -41,18 +40,23 @@ export default function calculatorApp() {
 
     if (e.target === $btnReset) {
       $txtDisplay.value = "";
+      $btnDot.disabled = false;
     }
 
     if (e.target === $btnDelete) {
+      let captureSigns = /[+|x|/|-]/g;
       $txtDisplay.value = $txtDisplay.value.slice(0, -1);
+      if (!captureSigns.test($txtDisplay.value.slice(-1))) {
+        $txtDisplay.value.split(captureSigns).map((value) => {
+          return !value.includes(".") ? ($btnDot.disabled = false) : ($btnDot.disabled = true);
+        });
+      }
     }
 
     if (e.target === $btnDot) {
       //Validity Dot
-      if (!$txtDisplay.value.includes(".")) {
-        $txtDisplay.value += e.target.textContent;
-        $btnDot.disabled = true;
-      }
+      $txtDisplay.value += e.target.textContent;
+      $btnDot.disabled = true;
     }
 
     if (e.target === $btnResult) {
@@ -67,8 +71,13 @@ export default function calculatorApp() {
 
       let convertproduct = validityOctal($txtDisplay.value);
       $txtDisplay.value = Number.isInteger(eval(convertproduct)) ? eval(convertproduct) : eval(convertproduct).toFixed(1);
-      activeResult = true;
       $btnResult.disabled = true;
+      if ($txtDisplay.value.includes(".")) {
+        $btnDot.disabled = true;
+        activeResult = true;
+      } else {
+        $btnDot.disabled = false;
+      }
     }
   });
 
@@ -80,6 +89,7 @@ export default function calculatorApp() {
     lockedButtons();
     $btnResult.disabled = false;
     activeResult = false;
+    $btnDot.disabled = false;
   };
 
   //Locked Buttons Operations
