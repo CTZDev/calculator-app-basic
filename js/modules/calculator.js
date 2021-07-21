@@ -45,8 +45,6 @@ export default function calculatorApp() {
 
     if (e.target === $btnDelete) {
       let captureSigns = /[+|x|/|-]/g;
-      console.log($txtDisplay.value.slice(0, -1));
-      console.log($txtDisplay.value);
 
       //Validity for control dot , disabled and enabled.
       if (captureSigns.test($txtDisplay.value.slice(-1))) {
