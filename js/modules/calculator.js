@@ -18,12 +18,12 @@ export default function calculatorApp() {
 
   $btnNumbers.forEach((number) => {
     number.addEventListener("click", function (e) {
-      $txtDisplay.value += this.value;
+      $txtDisplay.value += this.textContent;
       unlockedButtons();
 
       //Active Button Equal - Validity dot
       if (activeResult && !$txtDisplay.value.includes(".")) {
-        $txtDisplay.value = this.value;
+        $txtDisplay.value = this.textContent;
         activeResult = false;
       }
     });
@@ -50,21 +50,23 @@ export default function calculatorApp() {
     if (e.target === $btnDot) {
       //Validity Dot
       if (!$txtDisplay.value.includes(".")) {
-        $txtDisplay.value += e.target.value;
+        $txtDisplay.value += e.target.textContent;
         $btnDot.disabled = true;
       }
     }
 
     if (e.target === $btnResult) {
-      let captureSigns = /[+|x|/|.|-]/g;
+      const captureSigns = /[+|x|/|.|-]/g;
+
       if (captureSigns.test($txtDisplay.value.slice(-1))) {
         return alert("Error en la operación, debes digitar correctamente tus valores");
       }
       if ($txtDisplay.value === "") {
         return alert("Primero debes ingresar valores");
       }
-      let convertproduct = $txtDisplay.value.replace("x", "*");
-      $txtDisplay.value = eval(convertproduct);
+
+      let convertproduct = validityOctal($txtDisplay.value);
+      $txtDisplay.value = Number.isInteger(eval(convertproduct)) ? eval(convertproduct) : eval(convertproduct).toFixed(1);
       activeResult = true;
       $btnResult.disabled = true;
     }
@@ -73,7 +75,7 @@ export default function calculatorApp() {
   //Function Arithmetic , click signs
   const arithmeticOptions = (e) => {
     if ($txtDisplay.value.slice(-1) === ".") return alert("Debes digitar correctamente tu numero decimal");
-    $txtDisplay.value += e.target.value;
+    $txtDisplay.value += e.target.textContent;
     $btnDot.disabled = false;
     lockedButtons();
     $btnResult.disabled = false;
@@ -94,5 +96,39 @@ export default function calculatorApp() {
     $btnMinus.disabled = false;
     $btnProduct.disabled = false;
     $btnDivide.disabled = false;
+  };
+
+  //Function validity Octal
+  const validityOctal = (operation) => {
+    let captureSigns = /[+|x|/|-]/g;
+    let captureMinus, response;
+    let resultContent = "";
+
+    //Validity Minus in operation
+    if (operation.charAt(0) === "-") {
+      captureMinus = operation.substr(1, operation.length);
+      response = captureMinus.split(captureSigns).map((value) => parseFloat(value));
+    } else {
+      response = operation.split(captureSigns).map((value) => parseFloat(value));
+    }
+
+    let signs = [];
+    for (let sign of operation) {
+      if (sign.match(captureSigns)) signs.push(sign);
+    }
+
+    //Mapped Signs , Convert x en "*"
+    const signsMapped = signs.map((s) => s.replaceAll("x", "*"));
+    if (response.length === signsMapped.length) {
+      for (let i = 0; i < response.length; i++) {
+        if (signs.length > i) resultContent += signsMapped[i] + response[i];
+      }
+    } else {
+      for (let i = 0; i < response.length; i++) {
+        if (signs.length > i) resultContent += response[i] + signsMapped[i];
+      }
+      resultContent += response[response.length - 1];
+    }
+    return resultContent;
   };
 }
