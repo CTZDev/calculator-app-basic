@@ -45,18 +45,34 @@ export default function calculatorApp() {
 
     if (e.target === $btnDelete) {
       let captureSigns = /[+|x|/|-]/g;
+      console.log($txtDisplay.value.slice(0, -1));
+      console.log($txtDisplay.value);
+
+      //Validity for control dot , disabled and enabled.
+      if (captureSigns.test($txtDisplay.value.slice(-1))) {
+        unlockedButtons();
+      } else {
+        lockedButtons();
+      }
+
+      //Clear Display or not , depends on the point
       $txtDisplay.value = $txtDisplay.value.slice(0, -1);
       if (!captureSigns.test($txtDisplay.value.slice(-1))) {
         $txtDisplay.value.split(captureSigns).map((value) => {
-          return !value.includes(".") ? ($btnDot.disabled = false) : ($btnDot.disabled = true);
+          if (!value.includes(".")) {
+            $btnDot.disabled = false;
+          } else {
+            activeResult = false;
+            $btnDot.disabled = true;
+          }
         });
       }
     }
 
     if (e.target === $btnDot) {
-      //Validity Dot
       $txtDisplay.value += e.target.textContent;
       $btnDot.disabled = true;
+      if (activeResult) activeResult = false;
     }
 
     if (e.target === $btnResult) {
@@ -72,9 +88,9 @@ export default function calculatorApp() {
       let convertproduct = validityOctal($txtDisplay.value);
       $txtDisplay.value = Number.isInteger(eval(convertproduct)) ? eval(convertproduct) : eval(convertproduct).toFixed(1);
       $btnResult.disabled = true;
+      activeResult = true;
       if ($txtDisplay.value.includes(".")) {
         $btnDot.disabled = true;
-        activeResult = true;
       } else {
         $btnDot.disabled = false;
       }
@@ -83,7 +99,10 @@ export default function calculatorApp() {
 
   //Function Arithmetic , click signs
   const arithmeticOptions = (e) => {
-    if ($txtDisplay.value.slice(-1) === ".") return alert("Debes digitar correctamente tu numero decimal");
+    if ($txtDisplay.value.slice(-1) === ".") {
+      activeResult = false;
+      return alert("Debes digitar correctamente tu numero decimal");
+    }
     $txtDisplay.value += e.target.textContent;
     $btnDot.disabled = false;
     lockedButtons();
