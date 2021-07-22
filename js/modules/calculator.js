@@ -20,6 +20,7 @@ export default function calculatorApp() {
     number.addEventListener("click", function (e) {
       $txtDisplay.value += this.textContent;
       unlockedButtons();
+      fontSizeLength();
       if (activeResult) {
         $txtDisplay.value = this.textContent;
         activeResult = false;
@@ -34,6 +35,10 @@ export default function calculatorApp() {
       arithmeticOptions(e);
     }
 
+    if (e.target === $btnProduct || e.target === $btnDivide) {
+      $btnMinus.disabled = false;
+    }
+
     if (e.target === $btnMinus) {
       arithmeticOptions(e);
     }
@@ -44,30 +49,41 @@ export default function calculatorApp() {
     }
 
     if (e.target === $btnDelete) {
-      let captureSigns = /[+|x|/|-]/g;
+      fontSizeLength();
 
-      //Validity for control dot , disabled and enabled.
-      if (captureSigns.test($txtDisplay.value.slice(-1))) {
-        unlockedButtons();
-      } else {
-        lockedButtons();
-      }
+      if ($txtDisplay.value.length > 0) {
+        let captureSigns = /[+|x|/|-]/g;
+        //Validity for control dot , disabled and enabled.
+        if (!captureSigns.test($txtDisplay.value.slice(-1))) {
+          lockedButtons();
+        } else {
+          unlockedButtons();
+        }
 
-      //Clear Display or not , depends on the point
-      $txtDisplay.value = $txtDisplay.value.slice(0, -1);
-      if (!captureSigns.test($txtDisplay.value.slice(-1))) {
-        $txtDisplay.value.split(captureSigns).map((value) => {
-          if (!value.includes(".")) {
-            $btnDot.disabled = false;
-          } else {
-            activeResult = false;
-            $btnDot.disabled = true;
-          }
-        });
+        //Capture Display , deleted last character
+        $txtDisplay.value = $txtDisplay.value.slice(0, -1);
+
+        ///Validity for enabled button - , accept operations negatives
+        if ($txtDisplay.value.slice(-1) === "x" || $txtDisplay.value.slice(-1) === "/") {
+          $btnMinus.disabled = false;
+        }
+
+        //Clear Display or not , depends on the point
+        if (!captureSigns.test($txtDisplay.value.slice(-1))) {
+          $txtDisplay.value.split(captureSigns).map((value) => {
+            if (!value.includes(".")) {
+              $btnDot.disabled = false;
+            } else {
+              activeResult = false;
+              $btnDot.disabled = true;
+            }
+          });
+        }
       }
     }
 
     if (e.target === $btnDot) {
+      fontSizeLength();
       $txtDisplay.value += e.target.textContent;
       $btnDot.disabled = true;
       if (activeResult) activeResult = false;
@@ -83,8 +99,9 @@ export default function calculatorApp() {
         return alert("Primero debes ingresar valores");
       }
 
-      let convertproduct = validityOctal($txtDisplay.value);
-      $txtDisplay.value = Number.isInteger(eval(convertproduct)) ? eval(convertproduct) : eval(convertproduct).toFixed(1);
+      let convertproduct = processOperation($txtDisplay.value);
+      console.log(convertproduct);
+      $txtDisplay.value = Number.isInteger(eval(convertproduct)) ? eval(convertproduct) : eval(convertproduct).toFixed(2);
       $btnResult.disabled = true;
       activeResult = true;
       if ($txtDisplay.value.includes(".")) {
@@ -102,14 +119,14 @@ export default function calculatorApp() {
       return alert("Debes digitar correctamente tu numero decimal");
     }
     $txtDisplay.value += e.target.textContent;
-    $btnDot.disabled = false;
     lockedButtons();
+    fontSizeLength();
     $btnResult.disabled = false;
     activeResult = false;
     $btnDot.disabled = false;
   };
 
-  //Locked Buttons Operations
+  //Locked Buttons Operations - x
   const lockedButtons = () => {
     $btnSum.disabled = true;
     $btnMinus.disabled = true;
@@ -126,7 +143,7 @@ export default function calculatorApp() {
   };
 
   //Function validity Octal
-  const validityOctal = (operation) => {
+  const processOperation = (operation) => {
     let captureSigns = /[+|x|/|-]/g;
     let captureMinus, response;
     let resultContent = "";
@@ -156,6 +173,16 @@ export default function calculatorApp() {
       }
       resultContent += response[response.length - 1];
     }
-    return resultContent;
+    return resultContent.replaceAll("NaN", "");
   };
+
+  //Minimize fontSize
+  const fontSizeLength = () => {
+    const length = (length) => {
+      $txtDisplay.value.length > length ? ($txtDisplay.style.fontSize = "1.1rem") : ($txtDisplay.style.fontSize = "2rem");
+    };
+    matchMedia("(min-width: 648px)").matches ? length(18) : length(10);
+  };
+
+  d.addEventListener("change", fontSizeLength);
 }

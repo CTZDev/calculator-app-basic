@@ -82,6 +82,7 @@ main {
   width: 100%;
   border: none;
   outline: none;
+  resize: none;
 }
 
 .calculator-operations {
@@ -112,6 +113,12 @@ main {
   display: block;
   width: 100%;
   text-transform: lowercase;
+  user-select: none;
+}
+
+/* Solo aplica cuando se traduce la pagina */
+.calculator-option > * {
+  pointer-events: none;
 }
 
 .calculator-option-del {
@@ -126,6 +133,11 @@ main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 0.75rem;
+}
+
+/* Solo aplica cuando se traduce la pagina */
+.calculator-buttons > * > * {
+  pointer-events: none;
 }
 
 @media only screen and (min-width: 640px) {

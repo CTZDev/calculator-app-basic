@@ -35,7 +35,8 @@
     </header>
     <main class="wrapper">
       <section class="calculator">
-        <input type="text" id="txtDisplay" class="display" placeholder="0" readonly />
+        <!-- <input type="text" id="txtDisplay" class="display" placeholder="0" readonly /> -->
+        <textarea id="txtDisplay" class="display" placeholder="0" readonly cols="30" rows="1"></textarea>
         <div class="calculator-operations">
           <div class="calculator-options">
             <button type="button" class="calculator-option" data-calc-number>7</button>
@@ -53,7 +54,7 @@
             <button type="button" id="btnDot" class="calculator-option">.</button>
             <button type="button" class="calculator-option" data-calc-number>0</button>
             <button type="button" id="btnDivide" class="calculator-option">/</button>
-            <button type="button" id="btnProduct" class="calculator-option">x</button>
+            <button type="button" id="btnProduct" class="calculator-option" translate="no">x</button>
           </div>
           <div class="calculator-buttons">
             <button id="btnReset" type="button" class="btn btn-reset">Reset</button>
